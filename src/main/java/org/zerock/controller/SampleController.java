@@ -15,6 +15,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+// @RestController : 메서드의 리턴타입으로 사용자가 정의한 클래스 타입을 사용할 수 있고, 이를 JSON이나 XML로 자동으로 처리 가능ㄴ
 @RestController
 @RequestMapping("/sample")
 @Log4j
@@ -24,6 +25,7 @@ public class SampleController {
     public String getText() {
         log.info("MIME TYPE : " + MediaType.TEXT_PLAIN_VALUE);
 
+        // @Controller의 경우 문자열을 반환하면 JSP 파일의 이름으로 처리됨
         // produces의 속성값으로 지정된 "text/plain" 결과가 나오게 됨
         return "Hi!";
     }
@@ -34,6 +36,7 @@ public class SampleController {
         return new SampleVO(112, "star", "roard");
     }
 
+    // produces 속성은 필수가 아니라 생략하는 것도 가능
     @GetMapping(value = "/getSample2")
     public SampleVO getSample2() {
 
@@ -58,6 +61,7 @@ public class SampleController {
         return map;
     }
 
+    // ResponseEntity는 데이터와 함께 HTTP 헤더의 상태메시지를 같이 전달하는 용도로 사용
     @GetMapping(value = "/check", params = {"height", "weight"})
     public ResponseEntity<SampleVO> check(Double height, Double weight) {
 

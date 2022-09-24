@@ -90,6 +90,7 @@ var replyService = (function(){
         });
     }
 
+    // 시간처리 : 해당일 데이터는 "시/분/초"로 보여주고 전날 등록된 데이터는 "년/월/일"로 보여줌
     function displayTime(timeValue){
         var today = new Date();
 

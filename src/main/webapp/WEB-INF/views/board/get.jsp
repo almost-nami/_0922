@@ -133,7 +133,7 @@
                 <div class="modal-footer">
                     <button id="modalModBtn" type="button" class="btn btn-warning">Modify</button>
                     <button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
-                    <button id="modalRegisterBtn" type="button" class="btn btn-danger" data-dismiss="modal">Register</button>
+                    <button id="modalRegisterBtn" type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
                     <button id="modalCloseBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -146,6 +146,7 @@
     <script type="text/javascript" src="/resources/js/reply.js"></script>
 
     <script>
+        // Ajax호출은 replyService라는 객체에 감춰져 있으므로 필요한 파라미터들만 전달하는 형식
         console.log("================");
         console.log("JS TEST");
 
@@ -215,6 +216,7 @@
                     console.log("list : " + list);
                     console.log(list);
 
+                    // page가 -1로 전달되면 마지막 페이지를 찾아서 다시 호출하게 됨
                     if(page == -1) {
 
                         pageNum = Math.ceil(replyCnt / 10.0);
@@ -232,6 +234,7 @@
                     }
 
                     for(var i=0, len=list.length || 0; i<len; i++) {
+                        // 수정이나 삭제 시에는 댓글번호가 필요하므로 data-rno 속성을 이용해서 처리
                         str +="<li class='left clearfix' data-rno='"+list[i].rno+"'>";
                         str +="<div><div class='header'><strong class='primary-font'>["+list[i].rno+"] "+list[i].replyer+"</strong>";
                         str +="<small class='pull-right text-muted'>"+replyService.displayTime(list[i].replyDate)+"</small></div>";

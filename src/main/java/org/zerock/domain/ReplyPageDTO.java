@@ -6,6 +6,7 @@ import lombok.Getter;
 
 import java.util.List;
 
+// 댓글목록과 댓글의 수를 같이 전달하는 클래스
 @Data
 @AllArgsConstructor
 @Getter
