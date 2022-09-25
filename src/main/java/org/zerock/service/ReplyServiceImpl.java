@@ -13,6 +13,11 @@ import org.zerock.mapper.ReplyMapper;
 
 import java.util.List;
 
+/*
+    새로운 댓글이 추가되거나 삭제되는 상황이 되면 BoardMapper와 ReplyMapper를 같이 이용해서 처리하고
+    이 작업은 트랜잭션으로 처리되어야 함
+        -> 댓글의 수가 변하는 작업 : register, remove
+ */
 @Service
 @Log4j
 public class ReplyServiceImpl implements ReplyService {

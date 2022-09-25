@@ -31,5 +31,6 @@ public interface BoardMapper {
     // 전체 개수 구하기
     public int getTotalCount(Criteria cri);
 
+    // 해당 게시물의 번호 bno와 증가와 감소를 의미하는 amount
     public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }

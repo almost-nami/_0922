@@ -42,5 +42,6 @@ public class BoardVO {
     private Date regdate;
     private Date updateDate;
 
+    // 댓글의 숫자를 의미
     private int replyCnt;
 }
